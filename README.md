@@ -46,7 +46,7 @@ Book Collection API - это RESTful API для управления колле�
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone https://github.com/ваш-пользователь/book-collection-api.git
+   git clone https://github.com/IamRomanyuta/book-collection-API.git
    cd book-collection-api
    ```
 ### .env   
