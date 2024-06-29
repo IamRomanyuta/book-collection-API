@@ -1,0 +1,30 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+logs/*.log
+
+# Environment variables
+.env
+
+# Typescript
+*.tsbuildinfo
+dist/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*~
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Mac System files
+*.DS_Store
