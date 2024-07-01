@@ -1,20 +1,17 @@
-# Указываем базовый образ с Node.js 16
-FROM node:16
+FROM node:16-bullseye
 
-# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
 COPY package*.json ./
 
-# Устанавливаем зависимости
 RUN npm install
 
-# Копируем все файлы проекта
 COPY . .
 
-# Компилируем TypeScript
+RUN apt-get update && apt-get install -y openssl
+
 RUN npm run build
 
-# Указываем команду для запуска приложения
-CMD ["npm", "run", "start"]
+ENV PRISMA_QUERY_ENGINE_LIBRARY=/app/node_modules/@prisma/engines/libquery_engine-debian-openssl-1.1.x.so.node
+
+CMD ["npm", "start"]

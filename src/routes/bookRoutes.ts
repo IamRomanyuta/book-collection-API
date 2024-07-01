@@ -1,13 +1,14 @@
-import { Router } from 'express';
+import express from 'express';
 import { addBook, getBooksList, getBook, updateBookDetails, deleteBook } from '../controllers/bookController';
-import { authMiddleware } from '../middlewares/authMiddleware';
+import { authMiddleware, isAdmin } from '../middlewares/authMiddleware';
 
-const router = Router();
+const router = express.Router();
 
-router.post('/', authMiddleware, addBook);
-router.get('/', getBooksList);
-router.get('/:id', getBook);
-router.put('/:id', authMiddleware, updateBookDetails);
-router.delete('/:id', authMiddleware, deleteBook);
+router.post('/books', authMiddleware, isAdmin, addBook);
+router.get('/books', authMiddleware, getBooksList);
+router.get('/books/:id', authMiddleware, getBook);
+router.put('/books/:id', authMiddleware, isAdmin, updateBookDetails);
+router.delete('/books/:id', authMiddleware, isAdmin, deleteBook);
 
 export default router;
+

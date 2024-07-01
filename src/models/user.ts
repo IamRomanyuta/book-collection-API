@@ -1,8 +1,8 @@
 export interface User {
-    id: number;
-    username: string;
-    email: string;
-    password: string;
-    role: number;
-  }
-  
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+  role: number;
+  emailVerified: boolean;
+}
